@@ -10,7 +10,7 @@ function Layout({ children }) {
             <Link to="/" className="hover:text-white">Product</Link>
             <Link to="/privacy" className="hover:text-white">Privacy</Link>
             <Link to="/terms" className="hover:text-white">Terms</Link>
-            <a href="mailto:support@mikcorai.com" className="bg-white text-black px-4 py-2 rounded-full font-medium">Contact</a>
+            <span className="bg-white text-black px-4 py-2 rounded-full font-medium">support@mikcorai.com</span>
           </nav>
         </div>
       </header>
@@ -41,7 +41,7 @@ function Home() {
           <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-6">AI that talks<br/>to customers.</h1>
           <p className="text-xl text-zinc-400 leading-relaxed mb-10 max-w-2xl">Mikcorai helps businesses automate support, sales and engagement with AI agents across WhatsApp and web. Secure, scalable, and built for modern teams.</p>
           <div className="flex gap-3">
-            <a href="mailto:support@mikcorai.com" className="bg-white text-black px-7 py-3 rounded-full font-semibold text-sm">Get Early Access</a>
+            <span className="bg-white text-black px-7 py-3 rounded-full font-semibold text-sm">support@mikcorai.com</span>
             <a href="#features" className="border border-zinc-800 px-7 py-3 rounded-full text-sm">How it works</a>
           </div>
         </div>
