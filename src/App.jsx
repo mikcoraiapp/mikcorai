@@ -1,122 +1,112 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function Layout({ children }) {
   return (
-    <>
-      <header className="border-b border-zinc-800 sticky top-0 bg-black/80 backdrop-blur z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link to="/" className="font-black text-xl tracking-tighter">mikcorai</Link>
-          <nav className="flex gap-8 text-sm text-zinc-400 items-center">
-            <Link to="/" className="hover:text-white">Product</Link>
-            <Link to="/privacy" className="hover:text-white">Privacy</Link>
-            <Link to="/terms" className="hover:text-white">Terms</Link>
-            <span className="bg-white text-black px-4 py-2 rounded-full font-medium">support@mikcorai.com</span>
-          </nav>
-        </div>
+    <div className="min-h-screen bg-black text-white font-sans flex flex-col">
+      <header className="flex justify-between items-center px-6 md:px-12 py-6">
+        <Link to="/" className="text-xl font-bold tracking-tight">mikcorai</Link>
+        <nav className="flex items-center gap-6">
+          <Link to="/privacy" className="text-sm text-zinc-400 hover:text-white">Privacy</Link>
+          <Link to="/terms" className="text-sm text-zinc-400 hover:text-white">Terms</Link>
+          <span className="bg-white text-black px-4 py-2 rounded-full font-medium text-sm">support@mikcorai.com</span>
+        </nav>
       </header>
-      <main>{children}</main>
-      <footer className="border-t border-zinc-800 mt-24">
-        <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between gap-8 text-sm text-zinc-500">
-          <div>
-            <p className="font-bold text-white text-base mb-2">mikcorai</p>
-            <p className="max-w-sm">AI-powered business automation for WhatsApp, Web and API. Build intelligent customer experiences.</p>
-          </div>
-          <div className="flex gap-12">
-            <div><p className="text-white font-medium mb-3">Company</p><p><Link to="/privacy">Privacy Policy</Link></p><p className="mt-2"><Link to="/terms">Terms of Service</Link></p></div>
-            <div><p className="text-white font-medium mb-3">Contact</p><p>support@mikcorai.com</p><p className="mt-2">mikcorai.com</p></div>
-          </div>
+      <main className="flex-1">{children}</main>
+      <footer className="px-6 md:px-12 py-8 border-t border-zinc-900 text-sm text-zinc-500 flex flex-col md:flex-row justify-between gap-4">
+        <div>© {new Date().getFullYear()} mikcorai. All rights reserved.</div>
+        <div className="flex gap-6">
+          <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
+          <Link to="/terms" className="hover:text-white">Terms of Service</Link>
+          <span>support@mikcorai.com</span>
         </div>
-        <div className="border-t border-zinc-900 py-6 text-center text-xs text-zinc-600">© 2026 mikcorai. All rights reserved.</div>
       </footer>
-    </>
-  )
+    </div>
+  );
 }
 
 function Home() {
   return (
-    <Layout>
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="max-w-3xl">
-          <div className="inline-flex text-xs border border-zinc-800 rounded-full px-3 py-1 text-zinc-400 mb-6">● AI Business Platform v1.0</div>
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-6">AI that talks<br/>to customers.</h1>
-          <p className="text-xl text-zinc-400 leading-relaxed mb-10 max-w-2xl">Mikcorai helps businesses automate support, sales and engagement with AI agents across WhatsApp and web. Secure, scalable, and built for modern teams.</p>
-          <div className="flex gap-3">
-            <span className="bg-white text-black px-7 py-3 rounded-full font-semibold text-sm">support@mikcorai.com</span>
-            <a href="#features" className="border border-zinc-800 px-7 py-3 rounded-full text-sm">How it works</a>
-          </div>
-        </div>
-
-        <div id="features" className="grid md:grid-cols-3 gap-px bg-zinc-800 border border-zinc-800 rounded-2xl overflow-hidden mt-24">
-          <div className="bg-zinc-950 p-8">
-            <h3 className="font-semibold mb-3">WhatsApp Automation</h3>
-            <p className="text-sm text-zinc-500 leading-relaxed">Official Cloud API integration with webhooks, templates, and AI auto-replies.</p>
-          </div>
-          <div className="bg-zinc-950 p-8">
-            <h3 className="font-semibold mb-3">AI Agents</h3>
-            <p className="text-sm text-zinc-500 leading-relaxed">Train custom agents on your docs, FAQs, and products. Multilingual support.</p>
-          </div>
-          <div className="bg-zinc-950 p-8">
-            <h3 className="font-semibold mb-3">Enterprise Ready</h3>
-            <p className="text-sm text-zinc-500 leading-relaxed">Secure, compliant, with analytics, handoff to human, and API access.</p>
-          </div>
+    <div className="px-6 md:px-12">
+      <section className="py-24 md:py-36 max-w-4xl">
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[0.9]">The AI workforce<br/>for modern businesses.</h1>
+        <p className="mt-8 text-lg md:text-xl text-zinc-400 max-w-2xl">mikcorai deploys autonomous AI agents for WhatsApp, voice, and web — to automate sales, support, and operations.</p>
+        <div className="mt-10 flex gap-4">
+          <span className="bg-white text-black px-7 py-3 rounded-full font-semibold text-sm">support@mikcorai.com</span>
+          <Link to="/privacy" className="border border-zinc-800 px-7 py-3 rounded-full font-semibold text-sm">View Privacy</Link>
         </div>
       </section>
-    </Layout>
-  )
+    </div>
+  );
 }
 
-function Privacy() {
+function PrivacyPolicy() {
   return (
-    <Layout>
-      <div className="max-w-3xl mx-auto px-6 py-20">
-        <h1 className="text-4xl font-bold tracking-tight mb-2">Privacy Policy</h1>
-        <p className="text-sm text-zinc-500 mb-10">Last updated: October 16, 2026</p>
-        <div className="prose prose-invert prose-sm max-w-none space-y-5 text-zinc-400 leading-7">
-          <p>Mikcorai ("we", "us") operates mikcorai.com and related services. We are committed to protecting your privacy and handling data responsibly.</p>
-          <h3 className="text-white font-semibold">1. Information We Collect</h3>
-          <p>We collect business contact information, message content necessary to provide AI services, and usage analytics. WhatsApp message data is processed via Meta's official APIs.</p>
-          <h3 className="text-white font-semibold">2. How We Use Data</h3>
-          <p>To provide, improve, and secure our AI automation services. We do not sell personal data to third parties.</p>
-          <h3 className="text-white font-semibold">3. Data Retention & Security</h3>
-          <p>Message data is retained only as long as necessary for service delivery, typically up to 30 days. All data is encrypted in transit and at rest.</p>
-          <h3 className="text-white font-semibold">4. Contact</h3>
-          <p>For privacy requests, contact us at support@mikcorai.com.</p>
-        </div>
-      </div>
-    </Layout>
-  )
+    <div className="px-6 md:px-12 py-16 max-w-4xl mx-auto text-zinc-300 leading-relaxed">
+      <h1 className="text-4xl font-bold text-white mb-2">Privacy Policy</h1>
+      <p className="text-sm text-zinc-500 mb-10">Last Updated: October 16, 2026 | Effective for mikcorai.com, app.mikcorai.com, and WhatsApp Business services</p>
+
+      <h2 className="text-xl font-semibold text-white mt-8 mb-3">1. Who We Are</h2>
+      <p>mikcorai ("we", "us", "our") operates at mikcorai.com and provides AI agent platform services. Contact: support@mikcorai.com. Data Controller: mikcorai.</p>
+
+      <h2 className="text-xl font-semibold text-white mt-8 mb-3">2. Data We Collect</h2>
+      <ul className="list-disc pl-6 space-y-2">
+        <li><strong>Account Information:</strong> name, email, company name when you sign up.</li>
+        <li><strong>Business Data:</strong> content you provide to train AI agents, integrations you connect.</li>
+        <li><strong>WhatsApp Business Data (Required by Meta):</strong> If you contact us or our clients via WhatsApp, we collect your phone number, WhatsApp ID, profile name, message content, timestamps, and delivery status to provide customer support, sales automation, and AI agent responses. This data is processed via Meta's WhatsApp Business API.</li>
+        <li><strong>Usage Data:</strong> IP address, device, browser, pages visited, via cookies and similar tech.</li>
+        <li><strong>Communication Data:</strong> Emails and support tickets to support@mikcorai.com</li>
+      </ul>
+
+      <h2 className="text-xl font-semibold text-white mt-8 mb-3">3. How We Use Data</h2>
+      <p>To provide and improve our AI services, to respond to inquiries via WhatsApp and email, to process transactions, to send service updates, to comply with law. We do not sell your personal data. We do not sell WhatsApp data to third parties.</p>
+
+      <h2 className="text-xl font-semibold text-white mt-8 mb-3">4. WhatsApp Business API Compliance</h2>
+      <p>We use WhatsApp Business Platform provided by Meta. Messages are encrypted in transit. We retain WhatsApp conversation history for up to 12 months for support and training purposes unless you request deletion. We do not use WhatsApp data for unsoliced marketing. You can opt-out of WhatsApp communications at any time by sending "STOP" or emailing support@mikcorai.com.</p>
+
+      <h2 className="text-xl font-semibold text-white mt-8 mb-3">5. Sharing</h2>
+      <p>We share data only with service providers essential to operations: Cloudflare (hosting), Meta/WhatsApp (messaging), and payment processors. All processors under DPA.</p>
+
+      <h2 className="text-xl font-semibold text-white mt-8 mb-3">6. Data Retention & Deletion</h2>
+      <p>We retain account data until deletion requested. WhatsApp data up to 12 months. To request deletion, email support@mikcorai.com with subject "Data Deletion". We will respond within 30 days.</p>
+
+      <h2 className="text-xl font-semibold text-white mt-8 mb-3">7. Your Rights</h2>
+      <p>Depending on your region (GDPR, CCPA), you have rights to access, correct, delete, and restrict processing. Contact support@mikcorai.com to exercise rights.</p>
+
+      <h2 className="text-xl font-semibold text-white mt-8 mb-3">8. Cookies</h2>
+      <p>We use essential cookies for site functionality and analytics cookies to improve service. You can disable cookies in browser settings.</p>
+
+      <h2 className="text-xl font-semibold text-white mt-8 mb-3">9. Security</h2>
+      <p>We implement industry-standard security measures. No method is 100% secure, but we protect data with encryption and access controls.</p>
+
+      <h2 className="text-xl font-semibold text-white mt-8 mb-3">10. Children's Privacy</h2>
+      <p>Our services are not for children under 13. We do not knowingly collect data from children.</p>
+
+      <h2 className="text-xl font-semibold text-white mt-8 mb-3">11. Contact</h2>
+      <p>For privacy questions, data requests, or WhatsApp opt-out: support@mikcorai.com | mikcorai.com</p>
+    </div>
+  );
 }
 
 function Terms() {
   return (
-    <Layout>
-      <div className="max-w-3xl mx-auto px-6 py-20">
-        <h1 className="text-4xl font-bold tracking-tight mb-2">Terms of Service</h1>
-        <p className="text-sm text-zinc-500 mb-10">Last updated: October 16, 2026</p>
-        <div className="space-y-5 text-zinc-400 leading-7 text-sm">
-          <p>By accessing or using Mikcorai services, you agree to these Terms.</p>
-          <h3 className="text-white font-semibold">Services</h3>
-          <p>Mikcorai provides AI-powered business messaging automation. You are responsible for complying with WhatsApp Business and Meta Platform policies when using our services.</p>
-          <h3 className="text-white font-semibold">Acceptable Use</h3>
-          <p>You agree not to use our services for spam, illegal activities, or any use that violates Meta's terms.</p>
-          <h3 className="text-white font-semibold">Limitation of Liability</h3>
-          <p>Services are provided "as is". Mikcorai is not liable for indirect or consequential damages.</p>
-          <h3 className="text-white font-semibold">Contact</h3>
-          <p>support@mikcorai.com</p>
-        </div>
-      </div>
-    </Layout>
-  )
+    <div className="px-6 md:px-12 py-16 max-w-4xl mx-auto text-zinc-300 leading-relaxed">
+      <h1 className="text-4xl font-bold text-white mb-2">Terms of Service</h1>
+      <p className="text-sm text-zinc-500 mb-10">Last Updated: October 16, 2026</p>
+      <p>By accessing mikcorai.com and using our AI agent platform, including WhatsApp Business integrations, you agree to these Terms. Services are provided "as is". You agree not to misuse the platform. Subscription fees non-refundable unless required by law. We may suspend accounts violating acceptable use or Meta WhatsApp policies. Limitation of liability: to maximum extent permitted by law. Governing law: Your local jurisdiction. Contact: support@mikcorai.com</p>
+    </div>
+  );
 }
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/terms" element={<Terms />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
-  )
+  );
 }
